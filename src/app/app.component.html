@@ -1,0 +1,20 @@
+
+<h2 class="h2">Tuoteryhmät:</h2>
+<!--
+<input type="text" (keyup)="onProductGroupKeyUp($event)">
+<p>
+<button (click)="getProductGroup()">Hae tuoteryhmät</button>
+</p>
+-->
+
+<ul class="productgroups">
+  <li *ngFor="let productGroup of productGroups"
+    [class.selected] ="productGroup.GroupId === selectedProductGroup"
+    (click)="onSelect(productGroup.GroupId)">
+    <span class="badge">{{productGroup.GroupId}}</span>{{productGroup.Name}}
+  </li>
+</ul>
+<app-addproduct [groupId2]="selectedProductGroup"></app-addproduct>
+<app-productlist [groupId]="selectedProductGroup">Loading groups...</app-productlist>
+
+
